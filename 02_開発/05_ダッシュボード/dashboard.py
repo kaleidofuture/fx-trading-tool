@@ -597,9 +597,9 @@ def main():
     st.markdown("---")
     pair_list = list(PAIRS.items())
 
-    # 1行目: メジャーペア (5つ)
-    row1 = pair_list[:5]
-    cols1 = st.columns(5)
+    # 1行目: 4ペア
+    row1 = pair_list[:4]
+    cols1 = st.columns(4)
     for i, (pair_name, pair_info) in enumerate(row1):
         df_1h = fetch_data(pair_info["ticker"])
         if not df_1h.empty:
@@ -616,9 +616,9 @@ def main():
         else:
             cols1[i].metric(label=pair_name, value="N/A", delta=L["market_closed"])
 
-    # 2行目: クロス円 (3つ) + 保有ポジション
-    row2 = pair_list[5:]
-    cols2 = st.columns(5)
+    # 2行目: 4ペア
+    row2 = pair_list[4:]
+    cols2 = st.columns(4)
     for i, (pair_name, pair_info) in enumerate(row2):
         df_1h = fetch_data(pair_info["ticker"])
         if not df_1h.empty:
@@ -634,14 +634,6 @@ def main():
             )
         else:
             cols2[i].metric(label=pair_name, value="N/A", delta=L["market_closed"])
-
-    demo_acct = load_demo_account()
-    demo_open_count = 0
-    if demo_acct:
-        dt = load_demo_trades()
-        demo_open_count = len([t for t in dt if t["status"] == "OPEN"])
-    cols2[3].metric(label=L["demo_balance"], value=f"¥{demo_acct['balance']:,.0f}" if demo_acct else "N/A")
-    cols2[4].metric(label=L["open_positions"], value=f"{demo_open_count}/3")
 
     # ── タブ ──
     tab_chart, tab_demo = st.tabs([
@@ -701,13 +693,11 @@ def main():
         if demo_account is None:
             st.info(L["demo_no_account"])
         else:
-            # 含み損益を先に計算
             demo_trades_all = load_demo_trades()
             demo_open_all = [t for t in demo_trades_all if t["status"] == "OPEN"]
+            demo_closed = [t for t in demo_trades_all if t["status"] == "CLOSED"]
             unrealized_total, unrealized_details = calc_unrealized_pnl(demo_open_all)
 
-            # 口座ステータス
-            st.markdown(f"### {L['demo_account']}")
             initial = demo_account["initial_balance"]
             balance = demo_account["balance"]
             peak = demo_account["peak_balance"]
@@ -716,55 +706,33 @@ def main():
             dd = (peak - equity) / peak * 100 if peak > 0 and equity < peak else 0
             started = demo_account.get("created_at", "")[:10]
 
-            ac_row1 = st.columns(4)
-            ac_row1[0].metric(L["demo_initial"], f"¥{initial:,.0f}")
-            ac_row1[1].metric(L["demo_balance"], f"¥{balance:,.0f}")
-            unrealized_color = "#26a69a" if unrealized_total >= 0 else "#ef5350"
-            ac_row1[2].metric(L["demo_unrealized"],
+            # ── 口座概要 ──
+            st.markdown(f"### {L['demo_account']}")
+            ac_main = st.columns(4)
+            ac_main[0].metric(L["demo_equity"], f"¥{equity:,.0f}")
+            ac_main[1].metric(L["demo_unrealized"],
                               f"¥{unrealized_total:+,.0f}",
                               delta=f"{unrealized_total:+,.0f}" if unrealized_total != 0 else None)
-            ac_row1[3].metric(L["demo_equity"], f"¥{equity:,.0f}")
-            ac_row2 = st.columns(4)
-            ac_row2[0].metric(L["demo_return"], f"{ret:+.1f}%")
-            ac_row2[1].metric(L["demo_drawdown"], f"{dd:.1f}%")
-            ac_row2[2].metric(L["demo_peak"], f"¥{peak:,.0f}")
-            ac_row2[3].metric(L["demo_started"], started)
+            ac_main[2].metric(L["demo_return"], f"{ret:+.1f}%")
+            ac_main[3].metric(L["demo_drawdown"], f"{dd:.1f}%")
 
-            # 検証期間プログレス
-            try:
-                start_dt = datetime.fromisoformat(demo_account["created_at"]).replace(tzinfo=None)
-                from dateutil.relativedelta import relativedelta
-                end_dt = start_dt + relativedelta(months=DEMO_TRIAL_MONTHS)
-            except Exception:
-                start_dt = datetime(2026, 3, 9)
-                end_dt = datetime(2026, 9, 9)
-            now = datetime.now()
-            total_days = (end_dt - start_dt).days
-            elapsed_days = (now - start_dt).days
-            remaining_days = max(0, (end_dt - now).days)
-            progress = min(1.0, max(0.0, elapsed_days / total_days)) if total_days > 0 else 0
+            ac_sub = st.columns(4)
+            ac_sub[0].metric(L["demo_balance"], f"¥{balance:,.0f}")
+            ac_sub[1].metric(L["demo_peak"], f"¥{peak:,.0f}")
+            ac_sub[2].metric(L["open_positions"], f"{len(demo_open_all)}/3")
+            ac_sub[3].metric(L["trade_count"], f"{len(demo_closed)}")
 
-            period_unit = f"{DEMO_TRIAL_MONTHS} months" if st.session_state.lang == "en" else f"{DEMO_TRIAL_MONTHS}ヶ月"
-            st.markdown(f"#### {L['demo_period']} ({period_unit})")
-            pr_cols = st.columns([2, 1, 1, 1])
-            pr_cols[0].progress(progress, text=f"{L['demo_progress']}: {progress*100:.0f}%")
-            pr_cols[1].metric(L["demo_end_date"], end_dt.strftime("%Y-%m-%d"))
-            pr_cols[2].metric(L["demo_elapsed"], f"{elapsed_days} {L['demo_days']}")
-            pr_cols[3].metric(L["demo_remaining"], f"{remaining_days} {L['demo_days']}")
+            st.divider()
 
-            # デモ保有ポジション
-            demo_open = demo_open_all
-            demo_closed = [t for t in demo_trades_all if t["status"] == "CLOSED"]
-
-            if demo_open:
-                st.markdown(f"### {L['demo_open_pos']} ({len(demo_open)}/3)")
-                for t in demo_open:
+            # ── 保有ポジション ──
+            st.markdown(f"### {L['demo_open_pos']} ({len(demo_open_all)}/3)")
+            if demo_open_all:
+                for t in demo_open_all:
                     color = "#26a69a" if t["direction"] == "LONG" else "#ef5350"
                     arrow = "▲" if t["direction"] == "LONG" else "▼"
                     entry_time = t.get("entry_time", "")[:19].replace("T", " ")
                     decimals = PAIRS.get(t["pair"], {}).get("decimals", 5)
 
-                    # 含み損益情報
                     uinfo = unrealized_details.get(t["id"])
                     if uinfo:
                         cur_price = uinfo["current_price"]
@@ -793,8 +761,12 @@ def main():
                         f'</div>',
                         unsafe_allow_html=True,
                     )
+            else:
+                st.info("保有ポジションはありません")
 
-            # デモ決済済み
+            st.divider()
+
+            # ── 決済済みトレード ──
             if demo_closed:
                 st.markdown(f"### {L['demo_closed']} ({len(demo_closed)})")
                 wins = len([t for t in demo_closed if t.get("pnl_jpy", 0) > 0])
@@ -819,8 +791,36 @@ def main():
                     ),
                     use_container_width=True, hide_index=True,
                 )
+                st.divider()
 
-            # スケジューラー実行履歴
+            # ── 検証期間 ──
+            try:
+                start_dt = datetime.fromisoformat(demo_account["created_at"]).replace(tzinfo=None)
+                from dateutil.relativedelta import relativedelta
+                end_dt = start_dt + relativedelta(months=DEMO_TRIAL_MONTHS)
+            except Exception:
+                start_dt = datetime(2026, 3, 9)
+                end_dt = datetime(2026, 9, 9)
+            now = datetime.now()
+            total_days = (end_dt - start_dt).days
+            elapsed_days = (now - start_dt).days
+            remaining_days = max(0, (end_dt - now).days)
+            progress = min(1.0, max(0.0, elapsed_days / total_days)) if total_days > 0 else 0
+
+            period_unit = f"{DEMO_TRIAL_MONTHS} months" if st.session_state.lang == "en" else f"{DEMO_TRIAL_MONTHS}ヶ月"
+            st.markdown(f"### {L['demo_period']} ({period_unit})")
+            st.progress(progress, text=f"{L['demo_progress']}: {progress*100:.0f}%")
+
+            pr_cols = st.columns(5)
+            pr_cols[0].metric(L["demo_initial"], f"¥{initial:,.0f}")
+            pr_cols[1].metric(L["demo_started"], started)
+            pr_cols[2].metric(L["demo_end_date"], end_dt.strftime("%Y-%m-%d"))
+            pr_cols[3].metric(L["demo_elapsed"], f"{elapsed_days} {L['demo_days']}")
+            pr_cols[4].metric(L["demo_remaining"], f"{remaining_days} {L['demo_days']}")
+
+            st.divider()
+
+            # ── スケジューラー実行履歴 ──
             st.markdown(f"### {L['demo_exec_history']}")
             executions = parse_demo_log()
             if not executions:
@@ -930,9 +930,10 @@ def main():
 
         st.markdown("---")
         st.markdown(f"### {L['trade_count']}")
-        open_count = len([t for t in trades if t["status"] == "OPEN"])
-        closed_count = len([t for t in trades if t["status"] == "CLOSED"])
-        st.markdown(f"{L['open_label']}: **{open_count}/3** / {L['closed_label']}: **{closed_count}**")
+        dt = load_demo_trades()
+        demo_open_count = len([t for t in dt if t["status"] == "OPEN"])
+        demo_closed_count = len([t for t in dt if t["status"] == "CLOSED"])
+        st.markdown(f"{L['open_label']}: **{demo_open_count}/3** / {L['closed_label']}: **{demo_closed_count}**")
 
         st.markdown("---")
         now_utc = datetime.now(timezone.utc)
