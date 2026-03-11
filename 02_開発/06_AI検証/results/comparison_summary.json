@@ -1,0 +1,44 @@
+[
+  {
+    "pair": "USD/JPY",
+    "rule_based": {
+      "trades": 26,
+      "win_rate": 57.7,
+      "pnl": 38144,
+      "pf": 1.67,
+      "max_dd": 3.0
+    },
+    "ai_enhanced": {
+      "trades": 15,
+      "win_rate": 53.3,
+      "pnl": 8324,
+      "pf": 1.23,
+      "max_dd": 3.1
+    },
+    "ai_stats": {
+      "go": 15,
+      "skip": 11
+    }
+  },
+  {
+    "pair": "EUR/USD",
+    "rule_based": {
+      "trades": 16,
+      "win_rate": 68.8,
+      "pnl": 50960,
+      "pf": 2.91,
+      "max_dd": 2.6
+    },
+    "ai_enhanced": {
+      "trades": 10,
+      "win_rate": 70.0,
+      "pnl": 34237,
+      "pf": 3.16,
+      "max_dd": 1.5
+    },
+    "ai_stats": {
+      "go": 10,
+      "skip": 6
+    }
+  }
+]

@@ -1,0 +1,35 @@
+
+======================================================================
+  EUR/USD COMPARISON REPORT
+======================================================================
+  初期資金: ¥500,000
+  データ: 4436 bars (2023-05-22 20:00:00 ~ 2026-03-06 20:00:00)
+
+  AI判断サマリ: GO=10, SKIP=6
+
+                            Rule-Based     AI-Enhanced       Diff
+  ------------------------------------------------------------
+  Total Trades                      16              10         -6
+  Win Rate                        68.8            70.0       +1.2
+  Total PnL (JPY)               50,960          34,237    -16,723
+  Return %                        10.2             6.8       -3.3
+  Profit Factor                   2.91            3.16      +0.24
+  Max Drawdown %                   2.6             1.5       -1.1
+  Avg Win (JPY)                  7,055           7,159       +104
+  Avg Loss (JPY)                -5,330          -5,293        +37
+  RR Ratio                        1.32            1.35      +0.03
+  ------------------------------------------------------------
+
+  --- AI SKIP Analysis ---
+  AIがSKIPしたトレード: 6件
+    うち勝ち: 4件, 負け: 2件
+    合計損益: ¥+16,503
+    -> AIが利益機会を逃した...
+
+  SKIP詳細:
+    2023-09-01 08:00:00 SHORT -> ¥+3,187 [sl] AI: Price below all EMAs but RSI mid-range and weak momentum suggest limited downside follow-through
+    2024-05-01 04:00:00 SHORT -> ¥-5,184 [sl] AI: RSI at 36 shows momentum weakening near oversold; price already 29 pips into downtrend with tight 0.19% ATR suggesting consolidation risk
+    2025-01-31 20:00:00 SHORT -> ¥+7,888 [tp] AI: Price already extended 0.5% below EMA20 in strong downtrend, late entry with poor risk-reward
+    2025-02-13 00:00:00 LONG  -> ¥+8,007 [tp] AI: Weak uptrend with RSI near overbought and price at range high suggests limited upside
+    2025-08-06 16:00:00 LONG  -> ¥-5,538 [sl] AI: RSI near overbought with weak trend and minimal recent momentum suggests limited upside
+    2025-10-30 04:00:00 SHORT -> ¥+8,143 [tp] AI: Price near EMA cluster showing hesitation, RSI neutral lacks conviction, recent bars show consolidation not momentum
