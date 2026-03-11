@@ -644,8 +644,8 @@ def main():
     cols2[4].metric(label=L["open_positions"], value=f"{demo_open_count}/3")
 
     # ── タブ ──
-    tab_chart, tab_signals, tab_trades, tab_report, tab_demo = st.tabs([
-        L["tab_chart"], L["tab_signals"], L["tab_trades"], L["tab_performance"], L["tab_demo"]
+    tab_chart, tab_trades, tab_report, tab_demo = st.tabs([
+        L["tab_chart"], L["tab_trades"], L["tab_performance"], L["tab_demo"]
     ])
 
     # ── チャートタブ ──
@@ -693,71 +693,6 @@ def main():
                 f"{L['rsi_zone']}: **{latest['RSI']:.1f}** "
                 f"{'🟢 ' + L['rsi_ok'] if rsi_ok else '🟡 ' + L['rsi_extreme']}"
             )
-
-    # ── シグナル履歴タブ ──
-    with tab_signals:
-        if not signals:
-            st.info(L["no_signals"])
-        else:
-            active_signals = [s for s in signals if not s.get("filtered", False)]
-            filtered_signals = [s for s in signals if s.get("filtered", False)]
-            st.markdown(
-                f"### {L['signal_history']} ({len(active_signals)} {L['signals']}"
-                f"{', ' + str(len(filtered_signals)) + ' filtered' if filtered_signals else ''})"
-            )
-
-            df_sig = pd.DataFrame(signals)
-            df_sig = df_sig.sort_values("detected_at", ascending=False).reset_index(drop=True)
-            df_sig["_date"] = df_sig["detected_at"].str[:10]
-
-            for date_key, group in df_sig.groupby("_date", sort=False):
-                active_in_day = len([1 for _, r in group.iterrows() if not r.get("filtered", False)])
-                filtered_in_day = len(group) - active_in_day
-                day_label = f"{date_key}  ({active_in_day} signals"
-                if filtered_in_day:
-                    day_label += f", {filtered_in_day} filtered"
-                day_label += ")"
-                is_latest = (date_key == df_sig["_date"].iloc[0])
-
-                with st.expander(day_label, expanded=is_latest):
-                    for _, row in group.iterrows():
-                        is_filtered = row.get("filtered", False)
-                        color = "#555" if is_filtered else ("#26a69a" if row["signal"] == "LONG" else "#ef5350")
-                        arrow = "▲" if row["signal"] == "LONG" else "▼"
-                        time_str = row.get("detected_at", "")[11:16]
-
-                        filter_badge = ""
-                        if is_filtered:
-                            reasons = row.get("filter_reasons", [])
-                            reason_labels = {
-                                "whipsaw": "Whipsaw",
-                                "ema200_close": "EMA200",
-                                "rsi_extreme": "RSI",
-                            }
-                            badges = " ".join(
-                                f'<span style="background:#555;padding:1px 6px;border-radius:3px;font-size:11px;">'
-                                f'{reason_labels.get(r, r)}</span>'
-                                for r in (reasons if isinstance(reasons, list) else [])
-                            )
-                            filter_badge = f'<br><small>FILTERED: {badges}</small>'
-
-                        detail = ""
-                        if not is_filtered:
-                            detail = (
-                                f'<br><small>SL: {row.get("stop_loss", "-")}  |  '
-                                f'TP: {row.get("take_profit", "-")}  |  '
-                                f'RSI: {row.get("rsi", "-")}  |  ATR: {row.get("atr", "-")}</small>'
-                            )
-
-                        st.markdown(
-                            f'<div style="padding:8px; margin:4px 0; border-left:4px solid {color}; '
-                            f'background:#1a1a2e; border-radius:4px;{" opacity:0.6;" if is_filtered else ""}">'
-                            f'<strong>{arrow} {row["pair"]} {row["signal"]}</strong> @ {row["price"]}'
-                            f'{detail}{filter_badge}'
-                            f'<br><small style="color:#888">{time_str} UTC</small>'
-                            f'</div>',
-                            unsafe_allow_html=True,
-                        )
 
     # ── トレード記録タブ ──
     with tab_trades:
