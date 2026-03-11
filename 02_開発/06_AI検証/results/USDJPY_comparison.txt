@@ -1,0 +1,40 @@
+
+======================================================================
+  USD/JPY COMPARISON REPORT
+======================================================================
+  初期資金: ¥500,000
+  データ: 4434 bars (2023-05-22 20:00:00 ~ 2026-03-06 20:00:00)
+
+  AI判断サマリ: GO=15, SKIP=11
+
+                            Rule-Based     AI-Enhanced       Diff
+  ------------------------------------------------------------
+  Total Trades                      26              15        -11
+  Win Rate                        57.7            53.3       -4.4
+  Total PnL (JPY)               38,144           8,324    -29,820
+  Return %                         7.6             1.7       -6.0
+  Profit Factor                   1.67            1.23      -0.44
+  Max Drawdown %                   3.0             3.1       +0.1
+  Avg Win (JPY)                  6,345           5,502       -843
+  Avg Loss (JPY)                -5,185          -5,099        +86
+  RR Ratio                        1.22            1.08      -0.14
+  ------------------------------------------------------------
+
+  --- AI SKIP Analysis ---
+  AIがSKIPしたトレード: 11件
+    うち勝ち: 7件, 負け: 4件
+    合計損益: ¥+29,799
+    -> AIが利益機会を逃した...
+
+  SKIP詳細:
+    2023-07-27 16:00:00 SHORT -> ¥-4,999 [sl] AI: Price near EMA200, weak RSI recovery signal, limited room before range support at 138.76
+    2024-03-18 04:00:00 LONG  -> ¥+7,581 [tp] AI: Weak uptrend near range high with overbought RSI suggests limited upside and poor risk-reward
+    2024-08-19 04:00:00 SHORT -> ¥+7,654 [tp] AI: RSI nearing oversold with weak momentum in late-stage downtrend suggests exhaustion risk
+    2024-09-30 08:00:00 SHORT -> ¥-5,180 [sl] AI: RSI in no-man's land and weak 5-bar momentum contradict strong trend claim
+    2025-02-13 12:00:00 SHORT -> ¥+7,691 [tp] AI: Price below all EMAs but weak RSI momentum and tight ATR suggest limited downside potential with unfavorable risk-reward in range-bound conditions
+    2025-04-01 16:00:00 SHORT -> ¥+7,807 [tp] AI: Price below all EMAs shows weak momentum, tight ATR suggests consolidation risk, RSI near midpoint lacks conviction for continuation
+    2025-04-29 12:00:00 SHORT -> ¥-5,282 [sl] AI: Price below all EMAs but RSI neutral and recent bars choppy - weak momentum for 4H timeframe
+    2025-05-30 20:00:00 SHORT -> ¥+4,137 [sl] AI: Price below all EMAs suggests downtrend but RSI near 50 shows indecision, 2% range indicates choppy consolidation not strong momentum
+    2025-07-07 04:00:00 LONG  -> ¥+7,907 [tp] AI: Weak uptrend with minimal EMA separation and moderate RSI suggests limited momentum for 1:1.5 target
+    2025-09-19 08:00:00 LONG  -> ¥+7,919 [tp] AI: Weak uptrend with RSI near overbought and tight EMA cluster suggests limited momentum - risk/reward unfavorable in ranging market
+    2026-02-04 12:00:00 LONG  -> ¥-5,436 [sl] AI: Weak uptrend near range high with elevated RSI and marginal momentum

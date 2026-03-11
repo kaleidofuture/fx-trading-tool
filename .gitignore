@@ -1,0 +1,20 @@
+config.json
+__pycache__/
+*.pyc
+02_開発/01_データ取得/data/
+02_開発/04_シグナル通知/logs/
+02_開発/04_シグナル通知/signal_history.json
+03_運用/01_デモトレード記録/trades.json
+
+# 運用データ（個人）
+03_運用/02_デモトレーダー/account.json
+03_運用/02_デモトレーダー/trades.json
+03_運用/02_デモトレーダー/logs/
+
+# 大容量メディアファイル
+01_理解/notebooklm_sync/output/
+
+# ローカル環境依存
+*.vbs
+*.bat
+*.xml
