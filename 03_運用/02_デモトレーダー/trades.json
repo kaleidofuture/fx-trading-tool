@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "pair": "AUD/USD",
+    "direction": "LONG",
+    "entry_price": 0.71151,
+    "entry_time": "2026-03-10T12:05:07.031366+00:00",
+    "units": 910,
+    "stop_loss": 0.70419,
+    "take_profit": 0.72249,
+    "initial_stop_loss": 0.70419,
+    "atr_at_entry": 0.00366,
+    "status": "OPEN",
+    "exit_price": null,
+    "exit_time": null,
+    "exit_reason": null,
+    "pnl_jpy": null,
+    "rsi": 60.8,
+    "signal_time": "2026-03-10 12:00:00"
+  }
+]
