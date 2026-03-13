@@ -398,3 +398,19 @@
 2026-03-13 17:05:06,561 [INFO] No new positions opened.
 2026-03-13 17:05:06,700 [INFO] CLOSED #1: AUD/USD LONG @ 0.70419 [sl] PnL=-999JPY (-73.2pips) [LOSS]
 2026-03-13 17:05:06,700 [INFO]   Balance: ¥99,001 (Return: -1.0%)
+2026-03-13 21:05:05,243 [INFO] =======================================================
+2026-03-13 21:05:05,245 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-03-13 21:05:05,245 [INFO] Balance: ¥99,001  Pairs: 8
+2026-03-13 21:05:05,245 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-03-13 21:05:05,245 [INFO] =======================================================
+2026-03-13 21:05:05,245 [INFO] === Signal Check @ 2026-03-13 12:05 UTC ===
+2026-03-13 21:05:05,245 [INFO] Balance: ¥99,001  Open: 0/3
+2026-03-13 21:05:06,333 [INFO] USD/JPY: No signal
+2026-03-13 21:05:06,584 [INFO] EUR/USD: No signal
+2026-03-13 21:05:06,851 [INFO] GBP/USD: No signal
+2026-03-13 21:05:07,109 [INFO] AUD/USD: No signal
+2026-03-13 21:05:07,349 [INFO] USD/CHF: No signal
+2026-03-13 21:05:07,654 [INFO] EUR/JPY: Filtered (whipsaw)
+2026-03-13 21:05:07,851 [INFO] GBP/JPY: No signal
+2026-03-13 21:05:08,127 [INFO] AUD/JPY: No signal
+2026-03-13 21:05:08,127 [INFO] No new positions opened.
