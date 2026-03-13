@@ -10,12 +10,13 @@
     "take_profit": 0.72249,
     "initial_stop_loss": 0.70419,
     "atr_at_entry": 0.00366,
-    "status": "OPEN",
-    "exit_price": null,
-    "exit_time": null,
-    "exit_reason": null,
-    "pnl_jpy": null,
+    "status": "CLOSED",
+    "exit_price": 0.70419,
+    "exit_time": "2026-03-13T08:05:06.697519+00:00",
+    "exit_reason": "sl",
+    "pnl_jpy": -999.0,
     "rsi": 60.8,
-    "signal_time": "2026-03-10 12:00:00"
+    "signal_time": "2026-03-10 12:00:00",
+    "pnl_pips": -73.2
   }
 ]
