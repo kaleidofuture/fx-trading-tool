@@ -990,3 +990,19 @@
 2026-03-19 21:05:06,094 [INFO] GBP/JPY: No signal
 2026-03-19 21:05:06,357 [INFO] AUD/JPY: No signal
 2026-03-19 21:05:06,357 [INFO] No new positions opened.
+2026-03-20 01:05:04,614 [INFO] =======================================================
+2026-03-20 01:05:04,616 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-03-20 01:05:04,616 [INFO] Balance: ¥99,001  Pairs: 8
+2026-03-20 01:05:04,616 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-03-20 01:05:04,616 [INFO] =======================================================
+2026-03-20 01:05:04,616 [INFO] === Signal Check @ 2026-03-19 16:05 UTC ===
+2026-03-20 01:05:04,616 [INFO] Balance: ¥99,001  Open: 0/3
+2026-03-20 01:05:05,769 [INFO] USD/JPY: No signal
+2026-03-20 01:05:05,968 [INFO] EUR/USD: No signal
+2026-03-20 01:05:06,266 [INFO] GBP/USD: No signal
+2026-03-20 01:05:06,585 [INFO] AUD/USD: No signal
+2026-03-20 01:05:06,897 [INFO] USD/CHF: No signal
+2026-03-20 01:05:07,151 [INFO] EUR/JPY: No signal
+2026-03-20 01:05:07,454 [INFO] GBP/JPY: No signal
+2026-03-20 01:05:07,735 [INFO] AUD/JPY: No signal
+2026-03-20 01:05:07,757 [INFO] No new positions opened.
