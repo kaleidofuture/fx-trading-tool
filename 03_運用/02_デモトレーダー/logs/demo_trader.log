@@ -1542,3 +1542,19 @@
 2026-03-27 18:49:13,361 [ERROR] AUD/JPY: Data fetch failed: 'NoneType' object is not subscriptable
 2026-03-27 18:49:13,361 [INFO] AUD/JPY: Insufficient data
 2026-03-27 18:49:13,361 [INFO] No new positions opened.
+2026-03-27 22:19:23,766 [INFO] =======================================================
+2026-03-27 22:19:23,766 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-03-27 22:19:23,766 [INFO] Balance: ¥99,001  Pairs: 8
+2026-03-27 22:19:23,766 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-03-27 22:19:23,766 [INFO] =======================================================
+2026-03-27 22:19:23,766 [INFO] === Signal Check @ 2026-03-27 13:19 UTC ===
+2026-03-27 22:19:23,766 [INFO] Balance: ¥99,001  Open: 0/3
+2026-03-27 22:19:25,769 [INFO] USD/JPY: No signal
+2026-03-27 22:19:26,182 [INFO] EUR/USD: No signal
+2026-03-27 22:19:26,529 [INFO] GBP/USD: No signal
+2026-03-27 22:19:26,847 [INFO] AUD/USD: No signal
+2026-03-27 22:19:27,119 [INFO] USD/CHF: No signal
+2026-03-27 22:19:27,324 [INFO] EUR/JPY: No signal
+2026-03-27 22:19:27,562 [INFO] GBP/JPY: No signal
+2026-03-27 22:19:27,811 [INFO] AUD/JPY: No signal
+2026-03-27 22:19:27,811 [INFO] No new positions opened.
