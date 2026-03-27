@@ -1518,3 +1518,27 @@
 2026-03-27 09:05:06,120 [INFO] GBP/JPY: No signal
 2026-03-27 09:05:06,301 [INFO] AUD/JPY: No signal
 2026-03-27 09:05:06,302 [INFO] No new positions opened.
+2026-03-27 18:49:13,073 [INFO] =======================================================
+2026-03-27 18:49:13,075 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-03-27 18:49:13,075 [INFO] Balance: ¥99,001  Pairs: 8
+2026-03-27 18:49:13,075 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-03-27 18:49:13,075 [INFO] =======================================================
+2026-03-27 18:49:13,075 [INFO] === Signal Check @ 2026-03-27 09:49 UTC ===
+2026-03-27 18:49:13,075 [INFO] Balance: ¥99,001  Open: 0/3
+2026-03-27 18:49:13,337 [ERROR] USD/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,337 [INFO] USD/JPY: Insufficient data
+2026-03-27 18:49:13,340 [ERROR] EUR/USD: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,341 [INFO] EUR/USD: Insufficient data
+2026-03-27 18:49:13,343 [ERROR] GBP/USD: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,343 [INFO] GBP/USD: Insufficient data
+2026-03-27 18:49:13,348 [ERROR] AUD/USD: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,348 [INFO] AUD/USD: Insufficient data
+2026-03-27 18:49:13,351 [ERROR] USD/CHF: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,351 [INFO] USD/CHF: Insufficient data
+2026-03-27 18:49:13,354 [ERROR] EUR/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,354 [INFO] EUR/JPY: Insufficient data
+2026-03-27 18:49:13,358 [ERROR] GBP/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,358 [INFO] GBP/JPY: Insufficient data
+2026-03-27 18:49:13,361 [ERROR] AUD/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-03-27 18:49:13,361 [INFO] AUD/JPY: Insufficient data
+2026-03-27 18:49:13,361 [INFO] No new positions opened.
