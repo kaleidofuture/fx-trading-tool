@@ -18,5 +18,24 @@
     "rsi": 60.8,
     "signal_time": "2026-03-10 12:00:00",
     "pnl_pips": -73.2
+  },
+  {
+    "id": 2,
+    "pair": "USD/JPY",
+    "direction": "LONG",
+    "entry_price": 159.64949,
+    "entry_time": "2026-04-02T12:05:05.985880+00:00",
+    "units": 1055,
+    "stop_loss": 158.71177,
+    "take_profit": 161.05607,
+    "initial_stop_loss": 158.71177,
+    "atr_at_entry": 0.46886,
+    "status": "OPEN",
+    "exit_price": null,
+    "exit_time": null,
+    "exit_reason": null,
+    "pnl_jpy": null,
+    "rsi": 57.1,
+    "signal_time": "2026-04-02 12:00:00"
   }
 ]
