@@ -2171,3 +2171,20 @@
 2026-04-03 13:05:06,889 [INFO] AUD/JPY: No signal
 2026-04-03 13:05:06,889 [INFO] No new positions opened.
 2026-04-03 13:05:07,043 [INFO]   #2 USD/JPY LONG: current=159.56400 unrealized=-8.5pips
+2026-04-03 17:05:04,354 [INFO] =======================================================
+2026-04-03 17:05:04,354 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-04-03 17:05:04,354 [INFO] Balance: ¥99,001  Pairs: 8
+2026-04-03 17:05:04,354 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-04-03 17:05:04,354 [INFO] =======================================================
+2026-04-03 17:05:04,361 [INFO] === Signal Check @ 2026-04-03 08:05 UTC ===
+2026-04-03 17:05:04,361 [INFO] Balance: ¥99,001  Open: 1/3
+2026-04-03 17:05:04,361 [INFO] USD/JPY: Skipped (already has open position)
+2026-04-03 17:05:05,665 [INFO] EUR/USD: No signal
+2026-04-03 17:05:05,911 [INFO] GBP/USD: No signal
+2026-04-03 17:05:06,101 [INFO] AUD/USD: No signal
+2026-04-03 17:05:06,433 [INFO] USD/CHF: No signal
+2026-04-03 17:05:06,652 [INFO] EUR/JPY: No signal
+2026-04-03 17:05:06,973 [INFO] GBP/JPY: No signal
+2026-04-03 17:05:07,169 [INFO] AUD/JPY: No signal
+2026-04-03 17:05:07,169 [INFO] No new positions opened.
+2026-04-03 17:05:07,347 [INFO]   #2 USD/JPY LONG: current=159.57001 unrealized=-7.9pips
