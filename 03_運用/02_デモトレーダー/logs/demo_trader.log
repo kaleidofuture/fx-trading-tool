@@ -2241,3 +2241,27 @@
 2026-04-04 05:05:08,307 [INFO] No new positions opened.
 2026-04-04 05:05:08,703 [INFO]   #2 USD/JPY LONG: current=159.59399 unrealized=-5.5pips
 2026-04-04 05:05:08,703 [INFO]   #3 EUR/USD SHORT: current=1.15181 unrealized=+6.5pips
+2026-04-04 12:38:45,202 [INFO] =======================================================
+2026-04-04 12:38:45,203 [INFO] FX Demo Trader - Dual Momentum Trend Following
+2026-04-04 12:38:45,203 [INFO] Balance: ¥99,001  Pairs: 8
+2026-04-04 12:38:45,203 [INFO] Risk: 1.0% per trade  Max positions: 3
+2026-04-04 12:38:45,203 [INFO] =======================================================
+2026-04-04 12:38:45,203 [INFO] === Signal Check @ 2026-04-04 03:38 UTC ===
+2026-04-04 12:38:45,203 [INFO] Balance: ¥99,001  Open: 2/3
+2026-04-04 12:38:45,203 [INFO] USD/JPY: Skipped (already has open position)
+2026-04-04 12:38:45,203 [INFO] EUR/USD: Skipped (already has open position)
+2026-04-04 12:38:45,376 [ERROR] GBP/USD: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,377 [INFO] GBP/USD: Insufficient data
+2026-04-04 12:38:45,379 [ERROR] AUD/USD: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,380 [INFO] AUD/USD: Insufficient data
+2026-04-04 12:38:45,384 [ERROR] USD/CHF: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,384 [INFO] USD/CHF: Insufficient data
+2026-04-04 12:38:45,386 [ERROR] EUR/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,386 [INFO] EUR/JPY: Insufficient data
+2026-04-04 12:38:45,388 [ERROR] GBP/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,389 [INFO] GBP/JPY: Insufficient data
+2026-04-04 12:38:45,391 [ERROR] AUD/JPY: Data fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,391 [INFO] AUD/JPY: Insufficient data
+2026-04-04 12:38:45,391 [INFO] No new positions opened.
+2026-04-04 12:38:45,394 [WARNING] EUR/USD: Price fetch failed: 'NoneType' object is not subscriptable
+2026-04-04 12:38:45,397 [WARNING] USD/JPY: Price fetch failed: 'NoneType' object is not subscriptable
