@@ -1,4 +1,10 @@
 config.json
+
+# 環境変数・シークレット
+.env
+.env.*
+!.env.example
+
 __pycache__/
 *.pyc
 02_開発/01_データ取得/data/
@@ -6,8 +12,11 @@ __pycache__/
 02_開発/04_シグナル通知/signal_history.json
 03_運用/01_デモトレード記録/trades.json
 
-# 運用データ（ログのみ除外）
+# 運用データ（デバッグログ除外）
 03_運用/02_デモトレーダー/logs/*.log.*
+03_運用/02_デモトレーダー/logs/bat_run.log
+03_運用/02_デモトレーダー/logs/bat_output.log
+03_運用/02_デモトレーダー/logs/bat_error.log
 
 # 大容量メディアファイル
 01_理解/notebooklm_sync/output/
